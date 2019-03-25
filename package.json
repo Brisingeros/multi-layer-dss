@@ -8,7 +8,8 @@
     "build": "npm run lint && tsc && npm run test",
     "lint": "./node_modules/.bin/eslint lib/classes/*",
     "test": "mocha --reporter spec",
-    "debug": "node ./debug.js"
+    "debug": "node ./debug.js",
+    "cover": "istanbul cover node_modules/mocha/bin/_mocha test/*.js - - -R spec"
   },
   "keywords": [
     "drools",
@@ -24,7 +25,9 @@
     "@typescript-eslint/eslint-plugin": "1.5.0",
     "@typescript-eslint/parser": "1.5.0",
     "chai": "4.2.0",
+    "coveralls": "^3.0.3",
     "eslint": "5.15.3",
+    "istanbul": "^0.4.5",
     "mocha": "6.0.2",
     "typescript": "3.3.4000"
   },
