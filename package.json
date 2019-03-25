@@ -9,9 +9,7 @@
     "lint": "./node_modules/.bin/eslint lib/classes/*",
     "test": "mocha --reporter spec",
     "debug": "node ./debug.js",
-    "coverage": "istanbul cover node_modules/mocha/bin/_mocha test/*.js -- -R spec",
-    "cover": "./node_modules/istanbul/lib/cli cover _mocha test/*.js",
-    "report-coverage": "cat ./coverage/lcov.info | codecov"
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
   },
   "keywords": [
     "drools",
@@ -28,7 +26,7 @@
     "@typescript-eslint/eslint-plugin": "1.5.0",
     "@typescript-eslint/parser": "1.5.0",
     "chai": "4.2.0",
-    "codecov.io": "0.1.6",
+    "coveralls": "3.0.3",
     "eslint": "5.15.3",
     "istanbul": "0.4.5",
     "mocha": "6.0.2",

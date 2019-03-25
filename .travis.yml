@@ -9,4 +9,3 @@ script:
 # Send coverage data to Coveralls
 after_success:
   - "npm run coverage"
-  - "npm run report-coverage"
