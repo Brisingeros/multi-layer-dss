@@ -42,10 +42,10 @@ npm run debug
 ### Code example
 
 ```javascript
-    var mldss = require('multi-layer-dss');
-    var flow = mldss.Flow;
-    var layer = mldss.Layer;
-    var rule = mldss.Rule;
+var mldss = require('multi-layer-dss');
+var flow = mldss.Flow;
+var layer = mldss.Layer;
+var rule = mldss.Rule;
 ```
 
 #### Step by step
@@ -54,58 +54,58 @@ You can also créate the Flow, his Layers and their Rules separately, using the 
 #### JSO
 
 ```javascript
-    'use strict';
-    var index = require('multi-layer-dss');
-    var flow = index.Flow;
+'use strict';
+var index = require('multi-layer-dss');
+var flow = index.Flow;
 
-    let layers = [{
-            resolve: (rul, o) => {
-                let ret = 'Hello there';
-                console.log(ret);
+let layers = [{
+        resolve: (rul, o) => {
+            let ret = 'Hello there';
+            console.log(ret);
 
-                for (let i = 0; i < rul.length; i++){
-                    if (rul[i].resolve(o))
-                        ret = rul[i].getContent();
-                }
+            for (let i = 0; i < rul.length; i++){
+                if (rul[i].resolve(o))
+                    ret = rul[i].getContent();
+            }
 
-                return ret;
+            return ret;
+        },
+        rules: [
+            {
+                weigth: 1,
+                content: 'General Kenobi',
+                conditions: [
+                    (o) => {
+                        return o.value === 1;
+                    }
+                ]
             },
-            rules: [
-                {
-                    weigth: 1,
-                    content: 'General Kenobi',
-                    conditions: [
-                        (o) => {
-                            return o.value === 1;
-                        }
-                    ]
-                },
-                {
-                    weigth: 1,
-                    content: 'General Grievous',
-                    conditions: [
-                        (o) => {
-                            return o.value === 2;
-                        }
-                    ]
-                }
-            ]
-        }
-    ];
-    let resolveFunc = (results) => {
-        return results[0];
-    };
-
-    let actualFlow = new flow(resolveFunc, layers);
-    let obj = {
-        value: 1
+            {
+                weigth: 1,
+                content: 'General Grievous',
+                conditions: [
+                    (o) => {
+                        return o.value === 2;
+                    }
+                ]
+            }
+        ]
     }
+];
+let resolveFunc = (results) => {
+    return results[0];
+};
 
-    actualFlow.execute(obj)
-    .then(val => {
-        console.log(val);
-    })
-    .catch(err => {
-        console.log(err);
-    });
+let actualFlow = new flow(resolveFunc, layers);
+let obj = {
+    value: 1
+}
+
+actualFlow.execute(obj)
+.then(val => {
+    console.log(val);
+})
+.catch(err => {
+    console.log(err);
+});
 ```
