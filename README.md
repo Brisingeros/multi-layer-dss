@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/Brisingeros/multi-layer-dss.svg?branch=master)](https://travis-ci.org/Brisingeros/multi-layer-dss)
+[![Coverage Status](https://coveralls.io/repos/github/Brisingeros/multi-layer-dss/badge.svg)](https://coveralls.io/github/Brisingeros/multi-layer-dss)
+
 # multi-layer-dss
 
 A npm package that builds a multi-layered Decisión Support System (DSS) for Node.js.

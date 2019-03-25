@@ -9,7 +9,7 @@
     "lint": "./node_modules/.bin/eslint lib/classes/*",
     "test": "mocha --reporter spec",
     "debug": "node ./debug.js",
-    "cover": "istanbul cover node_modules/mocha/bin/_mocha test/*.js - - -R spec"
+    "cover": "istanbul cover node_modules/mocha/bin/_mocha test/*.js -- -R spec"
   },
   "keywords": [
     "drools",
