@@ -21,6 +21,7 @@
   ],
   "author": "Kevin Carrasco <kevin.carrasco@clupik.com>",
   "license": "MIT",
+  "homepage": "https://github.com/Brisingeros/multi-layer-dss",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "1.5.0",
     "@typescript-eslint/parser": "1.5.0",
