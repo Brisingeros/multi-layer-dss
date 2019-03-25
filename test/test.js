@@ -4,7 +4,7 @@ var index = require('../dist/index.js');
 var flow = index.Flow;
 
 describe('Flow total test', () => {
-    it('Should return General Kenobi', () => {
+    it('Should return General Kenobi', async () => {
         let layers = [{
             resolve: (rul, o) => {
                 let ret = 'Hello there';
@@ -48,13 +48,8 @@ describe('Flow total test', () => {
             value: 1
         }
 
-        actualFlow.execute( obj )
-        .then(val => {
-            expect(val).to.equal('General Kenobi');
-            console.log(val);
-        })
-        .catch(err => {
-            console.log(err);
-        });
+        let val = await actualFlow.execute(obj);
+        expect(val).to.equal('General Kenobi');
+        console.log(val);
     });
 });
