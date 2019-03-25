@@ -1,6 +1,6 @@
 {
   "name": "multi-layer-dss",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A npm package that builds a multi-layered decision support system (DSS) for Node.js. You can program what each layer and the total flow does and returns, with a simple JS function.",
   "main": "dist/index.js",
   "types": "dist/index.d.js",
