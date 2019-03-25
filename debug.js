@@ -1,5 +1,5 @@
 'use strict';
-var index = require('./dist/index.js');
+var index = require('./');
 var flow = index.Flow;
 
 let layers = [{
