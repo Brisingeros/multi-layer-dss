@@ -29,7 +29,7 @@ export declare class Flow {
      */
     addLayer(layer: Layer): void;
     /**
-     * Resolves all Layer and uses their results in the resolve final method
+     * Resolves all Layers and uses their results in the resolve final method
      * @param object The object that will go throught the Flow
      */
     execute(object: any): Promise<any>;

@@ -75,7 +75,7 @@ var Flow = /** @class */ (function () {
     };
     ;
     /**
-     * Resolves all Layer and uses their results in the resolve final method
+     * Resolves all Layers and uses their results in the resolve final method
      * @param object The object that will go throught the Flow
      */
     Flow.prototype.execute = function (object) {

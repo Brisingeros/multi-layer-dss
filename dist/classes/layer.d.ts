@@ -8,6 +8,10 @@ export declare class Layer {
      * @param r The function to execute after Layer finalization
      */
     constructor(r: Function, rls?: any[]);
+    /**
+     * Resolves all Rules and uses their results in the resolve final method
+     * @param object The object that will go throught the Layer
+     */
     execute(object: any): Promise<any>;
     /**
      * Method used for complete initialization from JSO

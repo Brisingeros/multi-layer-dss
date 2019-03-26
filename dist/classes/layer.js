@@ -47,6 +47,10 @@ var Layer = /** @class */ (function () {
             this.initialize(rls);
     }
     ;
+    /**
+     * Resolves all Rules and uses their results in the resolve final method
+     * @param object The object that will go throught the Layer
+     */
     Layer.prototype.execute = function (object) {
         return __awaiter(this, void 0, void 0, function () {
             var rules;

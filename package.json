@@ -8,7 +8,8 @@
     "build": "npm run lint && tsc && npm run test",
     "lint": "./node_modules/.bin/eslint lib/classes/*",
     "test": "mocha --reporter spec",
-    "debug": "node ./debug.js",
+    "debugFlow": "node ./debugFlow.js",
+    "debugStep": "node ./debugStep.js",
     "coverage": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "keywords": [

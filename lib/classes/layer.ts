@@ -19,6 +19,10 @@ export class Layer {
             this.initialize(rls);
     };
 
+    /**
+     * Resolves all Rules and uses their results in the resolve final method
+     * @param object The object that will go throught the Layer
+     */
     public async execute(object: any): Promise<any> {
         let rules = this.rules;
 
