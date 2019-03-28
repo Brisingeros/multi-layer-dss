@@ -1,8 +1,6 @@
 "use strict";
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
 Object.defineProperty(exports, "__esModule", { value: true });
-__export(require("./flow"));
-__export(require("./layer"));
-__export(require("./rule"));
+var tslib_1 = require("tslib");
+tslib_1.__exportStar(require("./flow"), exports);
+tslib_1.__exportStar(require("./layer"), exports);
+tslib_1.__exportStar(require("./rule"), exports);
