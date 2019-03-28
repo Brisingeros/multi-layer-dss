@@ -7,8 +7,17 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program debug",
-            "program": "${workspaceFolder}/debug.js",
+            "name": "Launch Program debugFlow",
+            "program": "${workspaceFolder}/debugFlow.js",
+            "outFiles": [
+                "${workspaceFolder}/**/*.js"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program debugStep",
+            "program": "${workspaceFolder}/debugStep.js",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ]

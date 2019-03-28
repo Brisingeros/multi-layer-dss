@@ -66,7 +66,7 @@ describe('Prequel memes', () => {
             console.log(ret);
 
             for (let i = 0; i < rul.length; i++){
-                if (rul[i].resolve(o))
+                if (rul[i].resolve(o) && rul[i].getWeight() === 1)
                     ret = rul[i].getContent();
             }
 

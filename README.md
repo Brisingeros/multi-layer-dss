@@ -9,7 +9,7 @@ This package makes use of three core clases: Flow, Layer, Rule; written in TypeS
 
 * A Flow is the complete system. It contains Layers and a "resolve" function (Coded by the user) receiving all Layers results. Flow.execute receives the Object to pass the Flow.
 * A Layer contains related Rules and a "resolve" function (Coded by the user) receiving all Rules of this Layer and the Object. "resolve" should call the "resolve" function of each Rule.
-* A Rule contains any number of "conditions" as functions that receive the Object and should return a boolean, a "content" of any type, a number "weigth" useful in it's "resolve" function, that also receives the Object.
+* A Rule contains any number of "conditions" as functions that receive the Object and should return a boolean, a "content" of any type, a number "weigth" useful in its "resolve" function, that also receives the Object.
 
 ## Installation
 
@@ -37,10 +37,16 @@ npm run test
 npm run build
 ```
 
-* Make use of 'debug.js':
+* Make use of 'debugFlow.js':
 >>
 ```sh
-npm run debug
+npm run debugFlow
+```
+
+* Make use of 'debugStep.js':
+>>
+```sh
+npm run debugStep
 ```
 ### Code example
 
