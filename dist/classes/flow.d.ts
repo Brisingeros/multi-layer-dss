@@ -5,8 +5,6 @@ export declare class Flow {
     /** This function usually needs to return something and will be called by the Flow.resolve function.
      * Receives an array with the results of each Layer and the object that wnet througth the Flow */
     resolve: Function;
-    /** Results of each Layer */
-    results: any[];
     /**
      * @param r The function to execute after Flow finalization
      * @param lyrs The Layer objects in JSO for complete initialization

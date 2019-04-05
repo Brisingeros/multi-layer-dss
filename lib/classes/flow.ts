@@ -7,8 +7,6 @@ export class Flow {
     /** This function usually needs to return something and will be called by the Flow.resolve function.
      * Receives an array with the results of each Layer and the object that wnet througth the Flow */
     public resolve: Function;
-    /** Results of each Layer */
-    public results: any[];
 
     /**
      * @param r The function to execute after Flow finalization
@@ -16,7 +14,6 @@ export class Flow {
      */
     public constructor(r: Function, lyrs?: any[]) {
         this.layers = [];
-        this.results = [];
 
         this.resolve = r;
 
@@ -54,11 +51,16 @@ export class Flow {
      * @param object The object that will go throught the Flow
      */
     public async execute(object: any): Promise<any> {
+        let promises = [];
+
         for (let i = 0; i < this.layers.length; i++){
-            this.results.push(await this.layers[i].execute(object));
+            promises.push(this.layers[i].execute(object));
+            //this.results.push(await this.layers[i].execute(object));
         }
 
-        return await this.resolve(this.results, object);
+        let results = await Promise.all(promises);
+
+        return await this.resolve(results, object);
     };
 
 };

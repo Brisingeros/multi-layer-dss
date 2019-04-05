@@ -9,7 +9,6 @@ var Flow = /** @class */ (function () {
      */
     function Flow(r, lyrs) {
         this.layers = [];
-        this.results = [];
         this.resolve = r;
         if (lyrs)
             this.initialize(lyrs);
@@ -46,24 +45,20 @@ var Flow = /** @class */ (function () {
      */
     Flow.prototype.execute = function (object) {
         return tslib_1.__awaiter(this, void 0, void 0, function () {
-            var i, _a, _b;
-            return tslib_1.__generator(this, function (_c) {
-                switch (_c.label) {
+            var promises, i, results;
+            return tslib_1.__generator(this, function (_a) {
+                switch (_a.label) {
                     case 0:
-                        i = 0;
-                        _c.label = 1;
+                        promises = [];
+                        for (i = 0; i < this.layers.length; i++) {
+                            promises.push(this.layers[i].execute(object));
+                            //this.results.push(await this.layers[i].execute(object));
+                        }
+                        return [4 /*yield*/, Promise.all(promises)];
                     case 1:
-                        if (!(i < this.layers.length)) return [3 /*break*/, 4];
-                        _b = (_a = this.results).push;
-                        return [4 /*yield*/, this.layers[i].execute(object)];
-                    case 2:
-                        _b.apply(_a, [_c.sent()]);
-                        _c.label = 3;
-                    case 3:
-                        i++;
-                        return [3 /*break*/, 1];
-                    case 4: return [4 /*yield*/, this.resolve(this.results, object)];
-                    case 5: return [2 /*return*/, _c.sent()];
+                        results = _a.sent();
+                        return [4 /*yield*/, this.resolve(results, object)];
+                    case 2: return [2 /*return*/, _a.sent()];
                 }
             });
         });
