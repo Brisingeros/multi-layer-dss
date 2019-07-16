@@ -3,7 +3,7 @@
 
 # multi-layer-dss
 
-A npm package that builds a multi-layered Decisión Support System (DSS) for Node.js.
+A npm package that builds a multi-layered Decision Support System (DSS) for Node.js.
 
 This package makes use of three core clases: Flow, Layer, Rule; written in TypeScript and builded to JS.
 
