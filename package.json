@@ -5,12 +5,13 @@
   "main": "dist/index.js",
   "types": "dist/index.d.js",
   "scripts": {
-    "build": "npm run lint && tsc && npm run test",
+    "build": "npm i && tsc",
     "lint": "./node_modules/.bin/eslint lib/classes/*",
-    "test": "mocha --reporter spec",
+    "test": "npm run lint && mocha --reporter spec",
     "debugFlow": "node ./debugFlow.js",
     "debugStep": "node ./debugStep.js",
-    "coverage": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "release": "rm -rf node_modules/ package-lock.json && npm install --only=prod"
   },
   "keywords": [
     "drools",
@@ -33,5 +34,7 @@
     "mocha": "6.1.4",
     "typescript": "3.3.4000"
   },
-  "dependencies": {}
+  "dependencies": {
+    "tslib": "^1.10.0"
+  }
 }

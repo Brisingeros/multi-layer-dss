@@ -2,11 +2,13 @@ language : node_js
 node_js :
  - stable
 install :
- - npm install
+ - "npm install && npm run build"
 
 script: 
  - npm test
 
+before_deploy:
+  - "npm run release"
 deploy:
   provider: npm
   email: $NPM_EMAIL

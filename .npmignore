@@ -3,5 +3,4 @@ test/
 .eslintrc.json
 .gitignore
 .travis.yml
-README.md
 tsconfig.json
