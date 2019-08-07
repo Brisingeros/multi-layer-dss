@@ -3,8 +3,29 @@ node_js :
  - stable
 install :
  - npm install
+
+branches:
+  only:
+  - master
+
 script: 
  - npm test
+
+jobs:
+  include:
+    - stage: npm release
+      if: tag IS present
+      before_deploy:
+        - cd dist
+      deploy:
+        provider: npm
+        email: "$NPM_EMAIL"
+        api_key: "$NPM_TOKEN"
+        skip_cleanup: true
+        on:
+          tags: true
+          all_branches: true
+          condition: $TRAVIS_TAG =~ ^v[0-9]+\.[0-9]+\.[0-9]+
 
 # Send coverage data to Coveralls
 after_success:
