@@ -20,31 +20,31 @@ npm install multi-layer-dss --save
 
 ### Commands
 * Run EsLint test:
->>
+
 ```sh
 npm run lint
 ```
 
 * Run Mocha test (If builded):
->>
+
 ```sh
 npm run test
 ```
 
 * Build JS:
->>
+
 ```sh
 npm run build
 ```
 
 * Make use of 'debugFlow.js':
->>
+
 ```sh
 npm run debugFlow
 ```
 
 * Make use of 'debugStep.js':
->>
+
 ```sh
 npm run debugStep
 ```
