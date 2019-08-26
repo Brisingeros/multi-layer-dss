@@ -26,8 +26,9 @@ var Flow = /** @class */ (function () {
      * }]
      */
     Flow.prototype.initialize = function (lyrs) {
+        var actLayer;
         for (var i = 0; i < lyrs.length; i++) {
-            var actLayer = lyrs[i];
+            actLayer = lyrs[i];
             this.addLayer(new layer_1.Layer(actLayer.resolve, actLayer.rules));
         }
     };
@@ -52,7 +53,6 @@ var Flow = /** @class */ (function () {
                         promises = [];
                         for (i = 0; i < this.layers.length; i++) {
                             promises.push(this.layers[i].execute(object));
-                            //this.results.push(await this.layers[i].execute(object));
                         }
                         return [4 /*yield*/, Promise.all(promises)];
                     case 1:

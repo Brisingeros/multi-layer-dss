@@ -33,8 +33,9 @@ export class Flow {
      * }]
      */
     private initialize(lyrs: any[]): void {
+        let actLayer;
         for (let i = 0; i < lyrs.length; i++){
-            let actLayer = lyrs[i];
+            actLayer = lyrs[i];
             this.addLayer(new Layer(actLayer.resolve, actLayer.rules));
         }
     };
@@ -51,14 +52,13 @@ export class Flow {
      * @param object The object that will go throught the Flow
      */
     public async execute(object: any): Promise<any> {
-        let promises = [];
+        const promises = [];
 
         for (let i = 0; i < this.layers.length; i++){
             promises.push(this.layers[i].execute(object));
-            //this.results.push(await this.layers[i].execute(object));
         }
 
-        let results = await Promise.all(promises);
+        const results = await Promise.all(promises);
 
         return await this.resolve(results, object);
     };

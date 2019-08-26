@@ -26,6 +26,6 @@
             "error",
             "always"
         ],
-        "@typescript-eslint/no-explicit-any": "allow"
+        "@typescript-eslint/no-explicit-any": 0
     }
 }

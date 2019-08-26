@@ -24,7 +24,7 @@ export class Layer {
      * @param object The object that will go throught the Layer
      */
     public async execute(object: any): Promise<any> {
-        let rules = this.rules;
+        const rules = this.rules;
 
         return await this.resolve(rules, object);
     };
@@ -38,8 +38,9 @@ export class Layer {
      * }]
      */
     private initialize(rls: any[]): void {
+        let actRule;
         for (let i = 0; i < rls.length; i++){
-            let actRule = rls[i];
+            actRule = rls[i];
             this.addRule(new Rule(actRule.weigth, actRule.content, actRule.conditions));
         }
     };

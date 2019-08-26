@@ -40,8 +40,9 @@ var Layer = /** @class */ (function () {
      * }]
      */
     Layer.prototype.initialize = function (rls) {
+        var actRule;
         for (var i = 0; i < rls.length; i++) {
-            var actRule = rls[i];
+            actRule = rls[i];
             this.addRule(new rule_1.Rule(actRule.weigth, actRule.content, actRule.conditions));
         }
     };
