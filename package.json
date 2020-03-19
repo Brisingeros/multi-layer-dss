@@ -7,10 +7,10 @@
   "scripts": {
     "build": "npm i && tsc",
     "lint": "./node_modules/.bin/eslint lib/classes/*",
-    "test": "npm run lint && mocha --reporter spec",
+    "test": "npm run lint && nyc mocha --reporter spec",
     "debugFlow": "node ./debugFlow.js",
     "debugStep": "node ./debugStep.js",
-    "coverage": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "coverage": "nyc --reporter=lcov --reporter=text-summary node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "release": "rm -rf node_modules/ package-lock.json && npm install --only=prod"
   },
   "keywords": [
@@ -25,16 +25,21 @@
   "license": "MIT",
   "homepage": "https://github.com/Brisingeros/multi-layer-dss",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "2.0.0",
-    "@typescript-eslint/parser": "2.0.0",
+    "@istanbuljs/nyc-config-typescript": "1.0.1",
+    "@typescript-eslint/eslint-plugin": "2.24.0",
+    "@typescript-eslint/parser": "2.24.0",
     "chai": "4.2.0",
-    "coveralls": "3.0.6",
-    "eslint": "6.2.2",
-    "istanbul": "0.4.5",
-    "mocha": "6.2.0",
-    "typescript": "3.5.3"
+    "coveralls": "3.0.11",
+    "eslint": "6.8.0",
+    "mocha": "7.1.1",
+    "nyc": "15.0.0",
+    "typescript": "3.8.3"
   },
   "dependencies": {
-    "tslib": "1.10.0"
+    "tslib": "1.11.1"
+  },
+  "nyc": {
+    "extends": "@istanbuljs/nyc-config-typescript",
+    "check-coverage": true
   }
 }
